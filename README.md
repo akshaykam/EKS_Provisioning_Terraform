@@ -1,3 +1,5 @@
+# this repo is not working for TF + ARC + EKS
+
 EKS Cluster Terraform Configuration
 Overview
 This Terraform configuration sets up an AWS EKS cluster using the official AWS EKS Terraform module.
