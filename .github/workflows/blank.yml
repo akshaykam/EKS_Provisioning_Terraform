@@ -1,0 +1,24 @@
+name: EKS + ARC Autoscaling
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  autoscale-test:
+    name: "Autoscaling Test Job ${{ matrix.job }}"
+    runs-on: [self-hosted]
+    strategy:
+      matrix:
+        job: [1, 2, 3, 4, 5]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print Job Number
+        run: echo "Running matrix job number ${{ matrix.job }}"
+
+      - name: Simulate load
+        run: |
+          echo "Simulating workload on runner..."
+          sleep $(( RANDOM % 30 + 30 ))  # Sleep 30–60 seconds to simulate load
